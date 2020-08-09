@@ -55,6 +55,21 @@
 
             inputValue.value = '';
         });
+
+        var inputElement = document.getElementById('task_title');
+        // inputElement.addEventListener('keyup', function(event) {
+        // inputElement.addEventListener('keypress', function(event) {
+        inputElement.addEventListener('input', function(event) {
+            var inputValue = event.target.value;
+            var regex = /^[A-Z]/;
+            
+            if(regex.test(inputValue) || inputValue === '') {
+                console.log(this);
+                this.style.backgroundColor = 'lightgreen';
+            } else {
+                this.style.backgroundColor = 'tomato';
+            }
+        });
     </script>
 </body>
 
