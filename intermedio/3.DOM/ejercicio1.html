@@ -1,11 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ejercicio #1 DOM</title>
+
+
 </head>
+
 <body>
-    
+    <ul id="todo_list">
+
+    </ul>
+
+    <script type="text/javascript">
+        const tasks = [
+            { title: 'Hacer la colada' },
+            { title: 'Preparar la cena' },
+            { title: 'Tirar la basura' },
+        ];
+
+        var todoListElement = document.querySelector('#todo_list');
+
+        for (var i = 0; i < tasks.length; i += 1) {
+            var task = tasks[i];
+            var li = document.createElement('li');
+
+            li.textContent = task.title;
+
+            todoListElement.appendChild(li);
+        }
+    </script>
 </body>
+
 </html>
