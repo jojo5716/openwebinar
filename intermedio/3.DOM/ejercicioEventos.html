@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio #1 DOM</title>
+
+
+</head>
+
+<body>
+    <input type="text" id="task_title" />
+    <button id="create_button">Crear</button>
+    <ul id="todo_list">
+
+    </ul>
+
+    <script type="text/javascript">
+        function createTaskElement(elementToAppend, title) {
+            var li = document.createElement('li');
+
+            li.textContent = title;
+
+            elementToAppend.appendChild(li);
+        }
+
+        const tasks = [
+            { title: 'Hacer la colada' },
+            { title: 'Preparar la cena' },
+            { title: 'Tirar la basura' },
+        ];
+
+        var todoListElement = document.querySelector('#todo_list');
+
+        for (var i = 0; i < tasks.length; i += 1) {
+            var task = tasks[i];
+            createTaskElement(todoListElement, task.title);
+            // var li = document.createElement('li');
+
+            // li.textContent = task.title;
+
+            // todoListElement.appendChild(li);
+        }
+
+        var buttonToCreate = document.getElementById('create_button');
+        buttonToCreate.addEventListener('click', function (event) {
+            var inputValue = document.getElementById('task_title');
+            
+            if (inputValue.value !== '') {
+                createTaskElement(todoListElement, inputValue.value);
+            } else {
+                alert('No puedes guardar una lista vacia.')
+            }
+
+            inputValue.value = '';
+        });
+    </script>
+</body>
+
+</html>
